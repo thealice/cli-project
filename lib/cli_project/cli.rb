@@ -7,7 +7,7 @@ class CLI
 
 	def list_regions
 		#here doc. .gsub below removes indentation
-    # this list should not be hardcoded, should be replaced with regions coming from the API
+    # TODO this list should not be hardcoded, should be replaced with regions coming from the API
 		puts <<-DOC.gsub /^\s*/, ''
 			Please choose a metropolitan area by selecting a number from the list below:
       1. Atlanta
