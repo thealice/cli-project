@@ -1,15 +1,25 @@
-
 class API
-  url = 'https://data.bayareametro.gov/resource/5ubk-6knb.json'
-  response = HTTParty.get(url)
-  response.parsed_response
-  # client = SODA::Client.new({:domain => "data.bayareametro.gov", :app_token => "WqiUDRsnRNbvXluWOilrdHhBH"})
-  #
-  # results = client.get("5ubk-6knb", :$limit => 5000)
-  #
-  # puts "Got #{results.count} results. Dumping first results:"
-  # results.first.each do |k, v|
-  #   puts "#{key}: #{value}"
-  # end
+
+  include HTTParty
+
+  attr_accessor :name
+
+  base_uri 'ghibliapi.herokuapp.com'
+
+  def initialize(service) #could add page as second argument. service is here in case we want to add another api?
+    @options = { query: { site: service} } ##not sure how the @options hash is used
+  end
+
+  def films
+    self.class.get("/films", @options)##I think self.class makes this a class method because we are using 'extend' to import the httparty module, not 'include' (rather than separating the modules into instance and class methods)
+  end
+
+  def species
+    self.class.get("/species", @options)
+  end
 
 end
+
+# studio_ghibli = StudioGhibli.new("studioghibli")
+# puts studio_ghibli.films
+# puts studio_ghibli.species
