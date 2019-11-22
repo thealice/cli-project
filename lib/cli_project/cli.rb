@@ -33,7 +33,7 @@ class CLI
   end
 
   def list_films
-    API.get_films
+    API.films
   end
 
   def list_species

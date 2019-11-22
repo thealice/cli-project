@@ -7,7 +7,6 @@ class Film
     attributes.each do |key, value|
       self.send("#{key}=", value)
     end
-    save
   end
 
   def save
@@ -16,6 +15,18 @@ class Film
 
   def self.all
     @@all
+  end
+
+  def self.create_from_collection
+    films_array = API.films
+    films_array.each do |hash|
+      Film.create(hash)
+    end
+  end
+
+  def self.create(attributes)
+    new_film = Film.new(attributes)
+    new_film.save
   end
 
 

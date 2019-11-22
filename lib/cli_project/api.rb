@@ -4,15 +4,20 @@ class API
 
   base_uri 'ghibliapi.herokuapp.com'
 
-  def self.get_films
+  def self.films
     films_array = HTTParty.get('https://ghibliapi.herokuapp.com/films')
-    puts films_array.parsed_response
-    #response.body, response.code, response.message, response.headers.inspect
+    films_hash = {}
+    films_with_attributes = films_array.parsed_response.map do |hash|
+      films_hash[:title] = hash["title"]
+      films_hash[:description] = hash["description"]
+      films_hash[:species_links] = hash["species"]
+    end
+    puts films_hash
   end
 
-  def self.get_species
+  def self.species
     species_array = HTTParty.get('https://ghibliapi.herokuapp.com/species')
-    puts species_array.parsed_response
+    species_array.parsed_response
   end
 
 end
