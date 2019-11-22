@@ -3,7 +3,7 @@ class Film
 
   @@all = []
 
-  def initialize(attributes)
+  def initialize(attributes) #mass assignment
     attributes.each do |key, value|
       self.send("#{key}=", value)
     end
