@@ -6,16 +6,15 @@ class API
 
   base_uri 'ghibliapi.herokuapp.com'
 
-  def initialize(service) #could add page as second argument. service is here in case we want to add another api?
-    @options = { query: { site: service} } ##not sure how the @options hash is used
+  def self.get_films
+    response = HTTParty.get('https://ghibliapi.herokuapp.com/films')
+    binding.pry
+    puts response.parsed_response
+    #response.body, response.code, response.message, response.headers.inspect
   end
 
-  def films
-    self.class.get("/films", @options)##I think self.class makes this a class method because we are using 'extend' to import the httparty module, not 'include' (rather than separating the modules into instance and class methods)
-  end
-
-  def species
-    self.class.get("/species", @options)
+  def self.get_species
+    self.class.get("/species")
   end
 
 end

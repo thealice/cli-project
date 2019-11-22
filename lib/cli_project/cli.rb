@@ -2,7 +2,6 @@ class CLI
 
   def start
     main_menu
-    # main_pick
 	end
 
   def main_menu
@@ -26,13 +25,21 @@ class CLI
     while input != "exit"
       input = gets.strip.to_i
       if input == 1
-        puts "you have selected 1"
+        list_films
       else
-        puts "you have selected 2"
+        list_species
       end
     end
   end
-  
+
+  def list_films
+    API.get_films
+  end
+
+  def list_species
+    puts "put species list here"
+  end
+
 end
 
 ### leaving this here for now in case I want to go back to the income stats app
