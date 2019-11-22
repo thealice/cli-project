@@ -25,7 +25,8 @@ class CLI
     while input != "exit"
       input = gets.strip.to_i
       if input == 1
-        list_films
+        Film.query_film_db
+        puts Film.all.first
       else
         list_species
       end
@@ -33,7 +34,8 @@ class CLI
   end
 
   def list_films
-    API.films
+    binding.pry
+    puts Film.all
   end
 
   def list_species

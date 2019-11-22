@@ -1,18 +1,13 @@
 class API
 
-  include HTTParty
+  BASE_URL = "https://ghibliapi.herokuapp.com"
 
-  base_uri 'ghibliapi.herokuapp.com'
-
-  def self.films
-    films_array = HTTParty.get('https://ghibliapi.herokuapp.com/films')
-    films_hash = {}
-    films_with_attributes = films_array.parsed_response.map do |hash|
-      films_hash[:title] = hash["title"]
-      films_hash[:description] = hash["description"]
-      films_hash[:species_links] = hash["species"]
+  def self.query_film_db
+    results = HTTParty.get("#{BASE_URL}/films")
+    results = results.parsed_response
+    results.each do |film_hash|
+      Film.create_from_collection(film_hash)
     end
-    puts films_hash
   end
 
   def self.species
