@@ -1,4 +1,4 @@
-class API
+class StudioGhibli::API
 
   BASE_URL = "https://ghibliapi.herokuapp.com"
 
@@ -6,7 +6,7 @@ class API
     results = HTTParty.get("#{BASE_URL}/films")
     results = results.parsed_response
     results.each do |film_hash|
-      Film.create_from_collection(film_hash)
+      StudioGhibli::Film.create_from_collection(film_hash)
     end
   end
 

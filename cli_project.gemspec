@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "cli_project/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "cli_project"
-  spec.version       = CliProject::VERSION
+  spec.name          = "Studio Ghibli DB"
+  spec.version       = StudioGhibli::VERSION
   spec.authors       = ["'Alice Freda'"]
   spec.email         = ["'alicefreda@gmail.com'"]
 
-  spec.summary       = "update later"
+  spec.summary       = "A database of Studio Ghibli films"
   spec.description   = "update later"
   spec.homepage      = "https://github.com/thealice/cli-project"
   spec.license       = "MIT"
@@ -40,5 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
-  spec.add_dependency "httparty" 
+  spec.add_dependency "httparty"
 end

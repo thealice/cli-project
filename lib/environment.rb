@@ -6,7 +6,7 @@ require_relative 'cli_project/film'
 require_relative 'cli_project/cli'
 require_relative 'cli_project/api'
 
-module CliProject
+module StudioGhibli
   class Error < StandardError; end
   # Your code goes here...
 end

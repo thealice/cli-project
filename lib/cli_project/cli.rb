@@ -1,4 +1,4 @@
-class CLI
+class StudioGhibli::CLI
 
   def start
     main_menu
@@ -26,8 +26,8 @@ class CLI
     while input != "exit"
       input = gets.strip.to_i
       if input == 1
-        Film.get_films
-        puts Film.all.first
+        StudioGhibli::Film.get_films
+        puts StudioGhibli::Film.all.first
       else
         list_species
       end

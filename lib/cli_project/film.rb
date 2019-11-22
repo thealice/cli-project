@@ -1,4 +1,4 @@
-class Film
+class StudioGhibli::Film
   attr_accessor :id, :title, :description, :release_date, :species, :locations
 
   @@all = []
@@ -18,7 +18,7 @@ class Film
   end
 
   def self.create_from_collection(attributes)
-    new_film = Film.new(attributes)
+    new_film = StudioGhibli::Film.new(attributes)
     new_film.save
   end
 
