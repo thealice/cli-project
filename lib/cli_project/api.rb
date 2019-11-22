@@ -2,7 +2,7 @@ class API
 
   BASE_URL = "https://ghibliapi.herokuapp.com"
 
-  def self.query_film_db
+  def self.get_films
     results = HTTParty.get("#{BASE_URL}/films")
     results = results.parsed_response
     results.each do |film_hash|
@@ -10,9 +10,13 @@ class API
     end
   end
 
-  def self.species
-    species_array = HTTParty.get('https://ghibliapi.herokuapp.com/species')
+  def self.get_species
+    species_array = HTTParty.get("#{BASE_URL}/species")
     species_array.parsed_response
+  end
+
+  def self.get_locations
+
   end
 
 end
